@@ -60,11 +60,11 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback {
     public void update(){
         System.out.println(maxHeight + " " +maxWidth);
     }
-    public void draw(Canvas canvas){
+    public void draw(Canvas canvas, int radius){
         super.draw(canvas);
         Paint paint = new Paint();
         paint.setStyle(Paint.Style.FILL);
         paint.setColor(Color.BLUE);
-        canvas.drawCircle(100,100,100,paint);
+        canvas.drawCircle(100,100,radius,paint);
     }
 }
