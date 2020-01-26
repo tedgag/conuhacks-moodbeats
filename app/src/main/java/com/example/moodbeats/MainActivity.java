@@ -1,6 +1,8 @@
 package com.example.moodbeats;
 
 import androidx.appcompat.app.AppCompatActivity;
+import android.media.MediaPlayer;
+import android.widget.Button;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +12,9 @@ import android.view.WindowManager;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
+
+    MediaPlayer feeling;
+    Button btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +54,15 @@ public class MainActivity extends AppCompatActivity {
                 //Insert code here
             }
         });
+
+        feeling = MediaPlayer.create(MainActivity.this, R.raw.slowdancing);
+        feeling.start();
     }
+
+
+
+
+
+
 }
 
