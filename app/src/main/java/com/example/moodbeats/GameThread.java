@@ -24,7 +24,8 @@ public class GameThread extends Thread {
         long startTime;
         long timeMillis = 1000/MAX_FPS;
         long waitTime;
-        int framecount =0;
+        int framecount=0;
+        int radius=100;
         long totalTime=0;
         long targetTime=1000/MAX_FPS;
         while (running){
@@ -34,7 +35,7 @@ public class GameThread extends Thread {
                 canvas=this.surfaceHolder.lockCanvas();
                 synchronized(surfaceHolder) {
                     this.game.update();
-                    this.game.draw(canvas);
+                    this.game.draw(canvas, radius);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -58,11 +59,11 @@ public class GameThread extends Thread {
             }
             totalTime += System.nanoTime() - startTime;
             framecount++;
-            if(framecount==MAX_FPS){
-                avgFPS = 1000/((totalTime/framecount)/1000000);
+            if (framecount == 60) {
+                radius =75;
+            } if (framecount == 120) {
+                radius= 100;
                 framecount=0;
-                totalTime=0;
-                System.out.println(avgFPS);
             }
         }
     }
