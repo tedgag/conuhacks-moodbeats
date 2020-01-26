@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">MoodBeats</string>
-    <string name="Happy">Button</string>
-    <string name="Chill">Button</string>
-    <string name="Sad">Button</string>
+    <string name="Happy">button_Happy</string>
+    <string name="Chill">button_Chill</string>
+    <string name="Sad">button_Sad</string>
+    <string name="Stressed">button_Stressed</string>
 </resources>
