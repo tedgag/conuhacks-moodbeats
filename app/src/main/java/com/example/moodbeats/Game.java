@@ -11,14 +11,18 @@ import android.view.SurfaceView;
 
 public class Game extends SurfaceView implements SurfaceHolder.Callback {
     private GameThread gameThread;
+    private static final int MARGIN = 100;
+    private int minWidth = MARGIN;
+    private int minHeight= MARGIN;
+    private int maxWidth;
+    private int maxHeight;
 
-
-    public Game(Context context) {
+    public Game(Context context, int width, int height) {
         super(context);
-
+        this.maxWidth=width-MARGIN;
+        this.maxHeight=height-MARGIN;
         getHolder().addCallback(this);
         gameThread = new GameThread(getHolder(), this);
-
         setFocusable(true);
 
     }
@@ -54,7 +58,7 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback {
         return super.onTouchEvent(event);
     }
     public void update(){
-
+        System.out.println(maxHeight + " " +maxWidth);
     }
     public void draw(Canvas canvas){
         super.draw(canvas);
