@@ -2,9 +2,14 @@ package com.example.moodbeats;
 
 import android.graphics.Canvas;
 import android.view.SurfaceHolder;
+import java.util.Random;
 
 public class GameThread extends Thread {
 
+    Random randX = new Random();
+    Random randY = new Random();
+    int xCoordinate = randX.nextInt(20);
+    int yCoordinate = randY.nextInt(20);
     private int FPS = 30;
     private double avgFPS;
     private SurfaceHolder surfaceHolder;
