@@ -30,12 +30,18 @@ public class MainActivity extends AppCompatActivity {
 
         button_Stressed.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                //Insert code here
+                Intent intent = new Intent(MainActivity.this, GameActivity.class);
+                intent.putExtra("Mood","Stressed");
+                startActivity(intent);
+                finish();
             }
         });
         button_Sad.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-               
+                Intent intent = new Intent(MainActivity.this, GameActivity.class);
+                intent.putExtra("Mood","Sad");
+                startActivity(intent);
+                finish();
             }
         });
 
@@ -44,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         {   public void onClick(View view)
             {
                 Intent intent = new Intent(MainActivity.this, GameActivity.class);
+                intent.putExtra("Mood","Happy");
                 startActivity(intent);
                 finish();
             }
@@ -51,7 +58,10 @@ public class MainActivity extends AppCompatActivity {
 
         button_Chill.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                //Insert code here
+                Intent intent = new Intent(MainActivity.this, GameActivity.class);
+                intent.putExtra("Mood","Chill");
+                startActivity(intent);
+                finish();
             }
         });
 
