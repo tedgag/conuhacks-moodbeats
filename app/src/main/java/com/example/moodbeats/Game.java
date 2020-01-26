@@ -16,11 +16,13 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback {
     private int minHeight= MARGIN;
     private int maxWidth;
     private int maxHeight;
+    private Circle circle;
 
     public Game(Context context, int width, int height) {
         super(context);
         this.maxWidth=width-MARGIN;
         this.maxHeight=height-MARGIN;
+        this.circle = new Circle(100, 500,500);
         getHolder().addCallback(this);
         gameThread = new GameThread(getHolder(), this);
         setFocusable(true);
@@ -55,7 +57,17 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback {
     }
 
     public boolean onTouchEvent(MotionEvent event) {
-        return super.onTouchEvent(event);
+        double centerX = circle.getX() + circle.getRadius();
+        double centerY = circle.getY() + circle.getRadius();
+        double distanceX = event.getX() - centerX;
+        double distanceY = event.getY() - centerY;
+
+        boolean inside = isInside(distanceX,distanceY,circle.getRadius());
+        if (inside) {
+            circle = null;
+            return true;
+        }
+        return false;
     }
     public void update(){
         System.out.println(maxHeight + " " +maxWidth);
@@ -66,5 +78,9 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback {
         paint.setStyle(Paint.Style.FILL);
         paint.setColor(Color.BLUE);
         canvas.drawCircle(100,100,radius,paint);
+    }
+
+    boolean isInside(double distanceX, double distanceY, int radius) {
+        return (distanceX * distanceX) + (distanceY * distanceY) <= radius * radius;
     }
 }
