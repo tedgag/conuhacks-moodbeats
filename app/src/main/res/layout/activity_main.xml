@@ -7,39 +7,53 @@
     tools:context=".MainActivity">
 
     <Button
+        android:id="@+id/button_Chill"
+        android:layout_width="158dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="58dp"
+        android:text="Button"
+        app:layout_constraintBottom_toTopOf="@+id/button_Stressed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_Stressed"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Chill" />
+
+    <Button
         android:id="@+id/button_Sad"
         android:layout_width="158dp"
         android:layout_height="60dp"
         android:text="Button"
-        tools:layout_editor_absoluteX="126dp"
-        tools:layout_editor_absoluteY="456dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="509dp"
         tools:text="Sad" />
 
     <Button
         android:id="@+id/button_Stressed"
         android:layout_width="158dp"
         android:layout_height="60dp"
+        android:layout_marginBottom="58dp"
         android:text="Button"
-        tools:layout_editor_absoluteX="126dp"
-        tools:layout_editor_absoluteY="335dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_Sad"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_Sad"
+        app:layout_constraintStart_toStartOf="parent"
         tools:text="Stressed" />
-
-    <Button
-        android:id="@+id/button_Chill"
-        android:layout_width="158dp"
-        android:layout_height="60dp"
-        android:text="Button"
-        tools:layout_editor_absoluteX="126dp"
-        tools:layout_editor_absoluteY="222dp"
-        tools:text="Chill" />
 
     <Button
         android:id="@+id/button_Happy"
         android:layout_width="158dp"
         android:layout_height="60dp"
+        android:layout_marginBottom="58dp"
         android:text="Button"
-        tools:layout_editor_absoluteX="126dp"
-        tools:layout_editor_absoluteY="123dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_Chill"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_Chill"
+        app:layout_constraintStart_toStartOf="parent"
         tools:text="Happy" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
