@@ -15,7 +15,7 @@ public class GameActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        //String Mood = getIntent().getDataString();
+        //String Mood = getIntent().etDataString();
         String Mood2 = getIntent().getExtras().getString("Mood");
         setContentView(new Game(this));
 

@@ -1,11 +1,15 @@
 package com.example.moodbeats;
 
 import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
-public class Game extends SurfaceView implements SurfaceHolder.Callback {
 
+public class Game extends SurfaceView implements SurfaceHolder.Callback {
     private GameThread gameThread;
 
 
@@ -21,6 +25,7 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback {
 
     @Override
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
+        gameThread=new GameThread(getHolder(), this);
         gameThread.setRunning(true);
         gameThread.start();
     }
@@ -45,7 +50,17 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback {
 
     }
 
+    public boolean onTouchEvent(MotionEvent event) {
+        return super.onTouchEvent(event);
+    }
     public void update(){
 
+    }
+    public void draw(Canvas canvas){
+        super.draw(canvas);
+        Paint paint = new Paint();
+        paint.setStyle(Paint.Style.FILL);
+        paint.setColor(Color.BLUE);
+        canvas.drawCircle(100,100,100,paint);
     }
 }
