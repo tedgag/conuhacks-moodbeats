@@ -4,6 +4,8 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.view.SurfaceHolder;
 
+import java.util.ArrayList;
+
 
 public class GameThread extends Thread {
     public static final int MAX_FPS=30;
@@ -12,11 +14,18 @@ public class GameThread extends Thread {
     private Game game;
     private boolean running;
     public static Canvas canvas;
+    private ArrayList<Circle> circles;
 
-    public GameThread(SurfaceHolder surfaceHolder, Game game){
+
+    public void setCircles(ArrayList<Circle> circles) {
+        this.circles = circles;
+    }
+
+    public GameThread(SurfaceHolder surfaceHolder, Game game, ArrayList<Circle> circles){
         super();
         this.surfaceHolder = surfaceHolder;
         this.game=game;
+        this.circles = circles;
     }
 
     @Override
@@ -35,7 +44,7 @@ public class GameThread extends Thread {
                 canvas=this.surfaceHolder.lockCanvas();
                 synchronized(surfaceHolder) {
                     this.game.update();
-                    this.game.draw(canvas, radius);
+                    this.game.draw(canvas, radius, circles);
                 }
             } catch (Exception e) {
                 e.printStackTrace();

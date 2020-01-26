@@ -1,5 +1,7 @@
 package com.example.moodbeats;
 
+import android.util.DisplayMetrics;
+
 import java.util.Random;
 
 public class Circle {
@@ -7,6 +9,25 @@ public class Circle {
     private int radius = 200;
     private int x;
     private int y;
+
+    private static int screenHeight;
+    private static int screenWidth;
+
+    public static int getScreenHeight() {
+        return screenHeight;
+    }
+
+    public static void setScreenHeight(int screenHeight) {
+        Circle.screenHeight = screenHeight;
+    }
+
+    public static int getScreenWidth() {
+        return screenWidth;
+    }
+
+    public static void setScreenWidth(int screenWidth) {
+        Circle.screenWidth = screenWidth;
+    }
 
     private Random rand = new Random();
 
@@ -53,8 +74,8 @@ public class Circle {
     public void setCoords() {
         int newX, newY;
         //do {
-        newX = rand.nextInt(100);
-        newY = rand.nextInt(100);
+        newX = rand.nextInt(screenWidth);
+        newY = rand.nextInt(screenHeight);
 
         //} while (checkCollision(this) > radius);
 
