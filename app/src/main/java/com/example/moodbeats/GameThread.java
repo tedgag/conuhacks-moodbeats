@@ -30,7 +30,9 @@ public class GameThread extends Thread {
             startTime = System.nanoTime();
             canvas = null;
             try {
+
                 canvas = this.surfaceHolder.lockCanvas();
+                // Loop actions
                 synchronized (surfaceHolder) {
                     this.game.update();
                     this.game.draw(canvas);
